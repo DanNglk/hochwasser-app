@@ -173,13 +173,14 @@ public class AlarmsFragment extends AbstractFragment {
 		private int selectedItemPos; // long click to select an item
 
 		@Override
-		public void onBindViewHolder(final AlarmViewHolder holder, final int position) {
+		public void onBindViewHolder(final AlarmViewHolder holder, int position) {
+			final int selectedPosition = position;
 			holder.setItem(alarmList.get(position));
 			registerForContextMenu(holder.containerView);
 			holder.containerView.setOnLongClickListener(new View.OnLongClickListener() {
 				@Override
 				public boolean onLongClick(View v) {
-					selectedItemPos = position;
+					selectedItemPos = selectedPosition;
 					return false;
 				}
 			});
